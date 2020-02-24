@@ -1,0 +1,26 @@
+[Unit]
+Description=csocoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=csocoin
+Group=csocoin
+
+Type=forking
+PIDFile=/var/lib/csocoind/csocoind.pid
+
+ExecStart=/usr/bin/csocoind -daemon -pid=/var/lib/csocoind/csocoind.pid \
+          -conf=/etc/csocoin/csocoin.conf -datadir=/var/lib/csocoind
+
+ExecStop=-/usr/bin/csocoin-cli -conf=/etc/csocoin/csocoin.conf \
+         -datadir=/var/lib/csocoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

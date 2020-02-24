@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=csocoin
+Comment=CSO P2P Cryptocurrency
+Exec=csocoin-qt %u
+Terminal=false
+Type=Application
+Icon=csocoin128
+MimeType=x-scheme-handler/csocoin;
+Categories=Office;Finance;
+Name[ru]=csocoin-qt.desktop.desktop
